@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Cat Clicker</title>
+	<link rel="stylesheet" href="css/catclicker.css">
+
+
+</head>
+<body>
+
+	<div class="container">
+	   <div class="column-center" id="center"><h3>Click the image...<br><br></h3></div>
+	   <div class="column-left" id="left"><h3>Choose a cat from the list...</div>
+	   <div class="column-right" id="right"><h3>Number of clicks...<br><br></h3></div>
+	</div>
+	<script>
+		var pics = ["images/cat_PNG1631.png", "images/cute-little-cat.jpg"];
+		var cats = ["Kitten_1", "Kitten_2"];
+		var clicks = [0,0];
+		var counterDiv = document.createElement('div');
+		document.getElementById('right').appendChild(counterDiv);
+
+
+		for (var i=0; i< cats.length; i++) {
+			var cat = cats[i];
+			var list = document.createElement('ul');
+			var item = document.createElement('li');
+			var itemText = document.createTextNode(cat);
+			item.setAttribute('id', cat);
+			left.appendChild(list);
+			list.appendChild(item);
+			item.appendChild(itemText);
+
+			var chooseCat= document.getElementById(''+cat+'');
+
+			console.log(cat);
+
+			chooseCat.addEventListener('click', (function(catCopy) {
+				return function() {
+					j = cats.indexOf(catCopy);
+					console.log("j = " +j);
+					console.log(pics[j]);
+
+					while(center.childNodes.length > 1) {
+						center.removeChild(center.lastChild);
+					}
+					var catLabel = document.createTextNode(cats[j]);
+					center.appendChild(catLabel)
+
+					var imgDiv = document.createElement('div');
+					center.appendChild(imgDiv);
+					var img = document.createElement('IMG');
+					img.src = pics[j];
+					imgDiv.appendChild(img);
+
+		    		//document.getElementById('right').textContent = clicks[j];
+		    		counterDiv.textContent = clicks[j];
+
+
+				    img.addEventListener('click',(function(clickCat) {
+				    	return function() {
+				    		clicks[j] += 1;
+//				    		document.getElementById("right").textContent = clicks[j];
+							counterDiv.textContent = clicks[j];
+				    		while(right.childNodes >1){
+								console.log(right.childNodes);
+				    			right.removeChild(right.lastChild);
+				    		}
+				    	}
+				    })(img));
+				};
+
+
+			})(cat));
+		}
+
+	</script>
+</body>
+</html>

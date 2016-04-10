@@ -1,0 +1,8 @@
+img {
+	max-width: 100%;
+	max-height: 75%;
+}
+
+.column-left{ float: left; width: 25%; }
+.column-right{ float: right; width: 25%; }
+.column-center{ display: inline-block; width: 50%; }

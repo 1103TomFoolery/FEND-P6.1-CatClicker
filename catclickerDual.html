@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Cat Clicker</title>
+	<link rel="stylesheet" href="css/catclicker.css">
+
+
+</head>
+<body>
+	<div id="cat1">
+		<span><h2>Cute Cat Clicks:  <div id="clickCount1" size='3' onfocus'this.blur();' value='0' > </div></h2></span>
+		<img src="images/cute-little-cat.jpg" id="cuteCat">
+
+		<script type='text/javascript'>
+			var clickCount1=0;
+			var elem = document.getElementById('cuteCat');
+			elem.addEventListener('click', function(){
+	 		 //the element has been clicked... do stuff here
+	 		 clickCount1 += 1;
+	 		 console.log(clickCount1);
+	 		 document.getElementById("clickCount1").innerHTML=clickCount1;
+			}, false);
+		</script>
+	</div>
+		<div id="cat2">
+		<span><h2>Little Cat Clicks:  <div id="clickCount2" size='3' onfocus'this.blur();' value='0' > </div></h2></span>
+		<img src="images/cat_PNG1631.png" id="littleCat">
+
+		<script type='text/javascript'>
+			var clickCount2=0;
+			var elem = document.getElementById('littleCat');
+			elem.addEventListener('click', function(){
+	 		 //the element has been clicked... do stuff here
+	 		 clickCount2 += 1;
+	 		 console.log(clickCount2);
+	 		 document.getElementById("clickCount2").innerHTML=clickCount2;
+			}, false);
+		</script>
+	</div>
+</body>
+</html>
