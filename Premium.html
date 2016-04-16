@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <title>Cat Clicker Premium</title>
     <link rel="stylesheet" href="css/catclicker.css">
-    <script type="text/javascript" src="js/model.js"></script>
-    <script type="text/javascript" src="js/control.js"></script>
 
 </head>
 <body>
 
 	<div class="container">
-	   <div class="column-center" id="center"><h3>Click the image...<br><br></h3></div>
-	   <div class="column-left" id="left"><h3>Choose a cat from the list...</h3></div>
-	   <div class="column-right" id="right"><h3>Number of clicks...<br><br></h3></div>
+	   <div class="column-center" id="center"><h3>Click the image...<br><br></h3>
+	   		<h2 id="nom de chat"></h2>
+	   		<img id="kittyPorn" src=""></br>
+	   		<button type="button" id="adminButton" onClick="adminView.init()">Admin</button>
+	   		<form action="" style="display: none" id="adminForm">
+	   			<input type="text" name="name" id="name" /><br>
+	   			<input type="text" name="path" id="path" /><br>
+	   			<input type="text" name="clicks" id="clicks" /><br>
+	   			<button type="button" id="cancel">Cancel</button>
+	   			<input type="submit" value="Submit" />
+	   		</form>
+	   	</div>
+	   <div class="column-left" id="left"><h3>Choose a cat from the list...</h3>
+	   		<ul id="list"></ul>
+	   	</div>
+	   <div class="column-right" id="right"><h3>Number of clicks...<br><br></h3>
+	   		<h2 id="count"></h2>
+	   </div>
 	</div>
-	<script>
-	   document.body.onload = render();
-	</script>
+
+    <script type="text/javascript" src="js/model.js"></script>
+    <script type="text/javascript" src="js/control.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+
+
 </body>
 </html>
