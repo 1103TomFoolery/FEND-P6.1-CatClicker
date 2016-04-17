@@ -12,6 +12,12 @@ var control = {
 		return CatData.selection;
 	},
 
+	setCurrent: function(name, src, count) {
+		CatData.selection.name = name;
+		CatData.selection.path = src;
+		CatData.selection.clickCount = count;
+	},
+
 	getCats: function() {
 		return CatData.cats;
 	},

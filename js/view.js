@@ -71,25 +71,52 @@ var listView = {
 var adminView = {
 
 	init:  function() {
-		this.adminButton = document.getElementById("adminButton");
+		this.adminBtn = document.getElementById('adminBtn');
 		this.adminForm = document.getElementById("adminForm");
+		this.submitBtn = document.getElementById("submit");
+		this.cancelBtn = document.getElementById("cancel");
 
-		adminButton.addEventListener('click', function(){
-			return function(){
-//				control.setAdmin(true);
-				this.render();
-			};
+		this.adminBtn.addEventListener("click", function(){
+			adminView.render("open");
 		});
-//		control.setAdmin(false);
-//		this.render();
+
+		this.cancelBtn.addEventListener("click", function() {
+			CatData.admin = false;
+			adminView.render("close");
+		});
+
+		this.submitBtn.addEventListener("click", function() {
+			CatData.admin = false;
+			adminView.render("submit");
+		});
+
 	},
 
-	render: function() {
+	render: function(key) {
 		
-		return function() {
-			console.log("Admin button trying to display form by changing style from none to block");
-			this.adminForm.style.display = "block";
-		};
+		if (key == "open") {
+
+			this.adminForm.style.visibility = "visible";
+		}
+		else if (key == "close")
+			this.adminForm.style.visibility = "hidden";
+		else {
+			var currentCat = control.getSelection();
+			document.getElementById("name").value = currentCat.name;
+			document.getElementById("path").value = currentCat.path;
+			document.getElementById("clicks").value = currentCat.clickCount;
+			console.log(currentCat.name);
+
+			control.setSelection(document.getElementById("name").value,
+				document.getElementById("path").value,
+				document.getElementById("clicks").value);
+			console.log(control.getSelection().name);
+			this.adminForm.style.visibility = "hidden";
+			// adminView.init();
+			// listView.init();
+			// catView.init();
+			// clickView.init();
+		}
 
 	}
 };

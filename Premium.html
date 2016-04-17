@@ -12,13 +12,13 @@
 	   <div class="column-center" id="center"><h3>Click the image...<br><br></h3>
 	   		<h2 id="nom de chat"></h2>
 	   		<img id="kittyPorn" src=""></br>
-	   		<button type="button" id="adminButton" onClick="adminView.init()">Admin</button>
-	   		<form action="" style="display: none" id="adminForm">
-	   			<input type="text" name="name" id="name" /><br>
-	   			<input type="text" name="path" id="path" /><br>
-	   			<input type="text" name="clicks" id="clicks" /><br>
-	   			<button type="button" id="cancel">Cancel</button>
-	   			<input type="submit" value="Submit" />
+	   		<input type="button" id="adminBtn" value="Admin" />
+	   		<form action="" style="display: block; visibility: hidden" id="adminForm">
+	   			<input type="text" name="name" id="name" value="Name" /><br>
+	   			<input type="text" name="path" id="path" value="Path" /><br>
+	   			<input type="text" name="clicks" id="clicks" value="clickCount" /><br>
+	   			<input type="button" id="cancel" value="Cancel" />
+	   			<input type="submit" id="submit" value="Submit" />
 	   		</form>
 	   	</div>
 	   <div class="column-left" id="left"><h3>Choose a cat from the list...</h3>
