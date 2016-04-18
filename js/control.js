@@ -13,9 +13,12 @@ var control = {
 	},
 
 	setCurrent: function(name, src, count) {
+		console.log(name +" "+ src +" "+ count);
 		CatData.selection.name = name;
+		console.log("selection " + CatData.selection.name);
 		CatData.selection.path = src;
 		CatData.selection.clickCount = count;
+		return CatData.selection;
 	},
 
 	getCats: function() {
@@ -24,10 +27,13 @@ var control = {
 
 	select: function(item){
 		CatData.selection = item;
+		catView.render();
+		clickView.render();
 	},
+
 	incrementCounter: function() {
 		CatData.selection.clickCount++;
-		catView.render();
+		clickView.render();
 	}
 };
 

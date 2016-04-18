@@ -1,5 +1,6 @@
 var CatData = {
 	selection: null,
+	index: 0,
 	admin: false,
 	cats: [
 	    {name: "Bill", path: "images/Bill.jpg"  , clickCount: 0},

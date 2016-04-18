@@ -8,7 +8,6 @@ var clickView = {
 
 	render: function() {
 		var currentCat = control.getSelection();
-
 		this.clickElem.textContent = currentCat.clickCount;
 	}
 };
@@ -31,8 +30,6 @@ var catView = {
 		var currentCat = control.getSelection();
 		this.catNameElem.textContent = currentCat.name;
 		this.catImageElem.src = currentCat.path;
-		clickView.init();
-
 	}
 };
 
@@ -93,32 +90,26 @@ var adminView = {
 	},
 
 	render: function(key) {
-		
-		if (key == "open") {
+			var currentCat = control.getSelection();
+			document.getElementById("name").value = currentCat.name;
+			document.getElementById("path").value = currentCat.path;
+			document.getElementById("clicks").value = currentCat.clickCount;
 
+		if (key == "open") {
 			this.adminForm.style.visibility = "visible";
 		}
 		else if (key == "close")
 			this.adminForm.style.visibility = "hidden";
 		else {
-			var currentCat = control.getSelection();
-			document.getElementById("name").value = currentCat.name;
-			document.getElementById("path").value = currentCat.path;
-			document.getElementById("clicks").value = currentCat.clickCount;
-			console.log(currentCat.name);
 
-			control.setSelection(document.getElementById("name").value,
+			control.setCurrent(document.getElementById("name").value,
 				document.getElementById("path").value,
 				document.getElementById("clicks").value);
-			console.log(control.getSelection().name);
 			this.adminForm.style.visibility = "hidden";
-			// adminView.init();
-			// listView.init();
-			// catView.init();
-			// clickView.init();
-		}
+		};
+		catView.render();
+		clickView.render();
 
 	}
 };
-
 control.init();
