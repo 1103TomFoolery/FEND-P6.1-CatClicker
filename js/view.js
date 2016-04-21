@@ -83,7 +83,12 @@ var adminView = {
 		});
 
 		this.submitBtn.addEventListener("click", function() {
+			event.preventDefault();  // don't submit form data
 			CatData.admin = false;
+			var nameElem = document.getElementById("name").value;
+			console.log(nameElem);
+			var pathElem = document.getElementById("path").value;
+			var clickElem = document.getElementById("clicks").value;
 			adminView.render("submit");
 		});
 
@@ -91,24 +96,27 @@ var adminView = {
 
 	render: function(key) {
 			var currentCat = control.getSelection();
+
+		if (key == "open") {
 			document.getElementById("name").value = currentCat.name;
 			document.getElementById("path").value = currentCat.path;
 			document.getElementById("clicks").value = currentCat.clickCount;
 
-		if (key == "open") {
 			this.adminForm.style.visibility = "visible";
 		}
 		else if (key == "close")
 			this.adminForm.style.visibility = "hidden";
 		else {
 
-			control.setCurrent(document.getElementById("name").value,
+			control.setCurrent(
+				document.getElementById("name").value,
 				document.getElementById("path").value,
 				document.getElementById("clicks").value);
 			this.adminForm.style.visibility = "hidden";
 		};
 		catView.render();
 		clickView.render();
+		listView.render();
 
 	}
 };

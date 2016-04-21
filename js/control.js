@@ -15,7 +15,6 @@ var control = {
 	setCurrent: function(name, src, count) {
 		console.log(name +" "+ src +" "+ count);
 		CatData.selection.name = name;
-		console.log("selection " + CatData.selection.name);
 		CatData.selection.path = src;
 		CatData.selection.clickCount = count;
 		return CatData.selection;
